@@ -1,24 +1,24 @@
-﻿<Window x:Class="CarTripTracker.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CarTripTracker" Height="550" Width="900" 
-        MinHeight="450" MinWidth="700" WindowStartupLocation="CenterScreen">
+﻿<Page x:Class="CarTripTracker.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="HomePage">
+    <Grid Background="#F0F0F0">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+            <TextBlock Text="Нова поїздка" Style="{StaticResource HeaderLabel}" HorizontalAlignment="Center"/>
 
-    <DockPanel LastChildFill="True">
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="#2D2D30">
-            <Button Content="Головна" Margin="10" Padding="20,8" Click="GoHome_Click"/>
-            <Button Content="Журнал" Margin="0,10" Padding="20,8" Click="GoHistory_Click"/>
-            <Button Content="Налаштування" Margin="10" Padding="20,8" Click="GoSettings_Click"/>
+            <Border Background="White" CornerRadius="10" Padding="20">
+                <StackPanel>
+                    <Label Content="Пункт призначення:"/>
+                    <TextBox x:Name="DestinationInput"/>
+
+                    <Label Content="Пробіг (км):"/>
+                    <TextBox x:Name="MileageInput"/>
+
+                    <Button Content="Зберегти" Click="SaveButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <TextBlock x:Name="InfoDisplay" Margin="0,15" HorizontalAlignment="Center"/>
         </StackPanel>
-
-        <StatusBar DockPanel.Dock="Bottom" Background="#007ACC">
-            <StatusBarItem>
-                <TextBlock x:Name="StatusText" Text="Готово" Foreground="White" Margin="10,0"/>
-            </StatusBarItem>
-        </StatusBar>
-
-        <Grid Background="#F5F5F5">
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="HomePage.xaml"/>
-        </Grid>
-    </DockPanel>
-</Window>
+    </Grid>
+</Page>
